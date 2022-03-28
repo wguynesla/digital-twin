@@ -114,3 +114,127 @@ Commands you can use next
 
 
 ----------
+
+
+
+wguynes@Williams-MBP hcg-digital-twin % sam deploy --guided
+
+Configuring SAM deploy
+======================
+
+	Looking for config file [samconfig.toml] :  Not found
+
+	Setting default arguments for 'sam deploy'
+	=========================================
+	Stack Name [sam-app]: digital-twin
+	AWS Region [us-east-1]: 
+	#Shows you resources changes to be deployed and require a 'Y' to initiate deploy
+	Confirm changes before deploy [y/N]: 
+	#SAM needs permission to be able to create roles to connect to the resources in your template
+	Allow SAM CLI IAM role creation [Y/n]: 
+	#Preserves the state of previously provisioned resources when an operation fails
+	Disable rollback [y/N]: 
+	HelloWorldFunction may not have authorization defined, Is this okay? [y/N]: y
+	Save arguments to configuration file [Y/n]: 
+	SAM configuration file [samconfig.toml]: 
+	SAM configuration environment [default]: lab
+
+	Looking for resources needed for deployment:
+	Creating the required resources...
+	Successfully created!
+	 Managed S3 bucket: aws-sam-cli-managed-default-samclisourcebucket-1g1z12912s9ii
+	 A different default S3 bucket can be set in samconfig.toml
+
+	Saved arguments to config file
+	Running 'sam deploy' for future deployments will use the parameters saved above.
+	The above parameters can be changed by modifying samconfig.toml
+	Learn more about samconfig.toml syntax at 
+	https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-config.html
+
+Uploading to digital-twin/4c1ad6b0e7461b7261f54c01d0aa487c  1303 / 1303  (100.00%)
+
+	Deploying with following values
+	===============================
+	Stack name                   : digital-twin
+	Region                       : us-east-1
+	Confirm changeset            : False
+	Disable rollback             : False
+	Deployment s3 bucket         : aws-sam-cli-managed-default-samclisourcebucket-1g1z12912s9ii
+	Capabilities                 : ["CAPABILITY_IAM"]
+	Parameter overrides          : {}
+	Signing Profiles             : {}
+
+Initiating deployment
+=====================
+Uploading to digital-twin/1fa93d887aa8b44a9a5b40138f40e632.template  1359 / 1359  (100.00%)
+
+Waiting for changeset to be created..
+
+CloudFormation stack changeset
+---------------------------------------------------------------------------------------------------------------------
+Operation                     LogicalResourceId             ResourceType                  Replacement                 
+---------------------------------------------------------------------------------------------------------------------
++ Add                         HelloWorldFunctionHelloWorl   AWS::Lambda::Permission       N/A                         
+                              dPermissionProd                                                                         
++ Add                         HelloWorldFunctionRole        AWS::IAM::Role                N/A                         
++ Add                         HelloWorldFunction            AWS::Lambda::Function         N/A                         
++ Add                         ServerlessRestApiDeployment   AWS::ApiGateway::Deployment   N/A                         
+                              47fc2d5f9d                                                                              
++ Add                         ServerlessRestApiProdStage    AWS::ApiGateway::Stage        N/A                         
++ Add                         ServerlessRestApi             AWS::ApiGateway::RestApi      N/A                         
+---------------------------------------------------------------------------------------------------------------------
+
+Changeset created successfully. arn:aws:cloudformation:us-east-1:228507534354:changeSet/samcli-deploy1648471493/4910a741-9ddd-41a2-9228-6bef70f49856
+
+
+2022-03-28 07:45:05 - Waiting for stack create/update to complete
+
+CloudFormation events from stack operations
+---------------------------------------------------------------------------------------------------------------------
+ResourceStatus                ResourceType                  LogicalResourceId             ResourceStatusReason        
+---------------------------------------------------------------------------------------------------------------------
+CREATE_IN_PROGRESS            AWS::IAM::Role                HelloWorldFunctionRole        -                           
+CREATE_IN_PROGRESS            AWS::IAM::Role                HelloWorldFunctionRole        Resource creation Initiated 
+CREATE_COMPLETE               AWS::IAM::Role                HelloWorldFunctionRole        -                           
+CREATE_IN_PROGRESS            AWS::Lambda::Function         HelloWorldFunction            -                           
+CREATE_IN_PROGRESS            AWS::Lambda::Function         HelloWorldFunction            Resource creation Initiated 
+CREATE_COMPLETE               AWS::Lambda::Function         HelloWorldFunction            -                           
+CREATE_IN_PROGRESS            AWS::ApiGateway::RestApi      ServerlessRestApi             -                           
+CREATE_IN_PROGRESS            AWS::ApiGateway::RestApi      ServerlessRestApi             Resource creation Initiated 
+CREATE_COMPLETE               AWS::ApiGateway::RestApi      ServerlessRestApi             -                           
+CREATE_IN_PROGRESS            AWS::ApiGateway::Deployment   ServerlessRestApiDeployment   -                           
+                                                            47fc2d5f9d                                                
+CREATE_IN_PROGRESS            AWS::Lambda::Permission       HelloWorldFunctionHelloWorl   -                           
+                                                            dPermissionProd                                           
+CREATE_IN_PROGRESS            AWS::Lambda::Permission       HelloWorldFunctionHelloWorl   Resource creation Initiated 
+                                                            dPermissionProd                                           
+CREATE_IN_PROGRESS            AWS::ApiGateway::Deployment   ServerlessRestApiDeployment   Resource creation Initiated 
+                                                            47fc2d5f9d                                                
+CREATE_COMPLETE               AWS::ApiGateway::Deployment   ServerlessRestApiDeployment   -                           
+                                                            47fc2d5f9d                                                
+CREATE_IN_PROGRESS            AWS::ApiGateway::Stage        ServerlessRestApiProdStage    -                           
+CREATE_IN_PROGRESS            AWS::ApiGateway::Stage        ServerlessRestApiProdStage    Resource creation Initiated 
+CREATE_COMPLETE               AWS::ApiGateway::Stage        ServerlessRestApiProdStage    -                           
+CREATE_COMPLETE               AWS::Lambda::Permission       HelloWorldFunctionHelloWorl   -                           
+                                                            dPermissionProd                                           
+CREATE_COMPLETE               AWS::CloudFormation::Stack    digital-twin                  -                           
+---------------------------------------------------------------------------------------------------------------------
+
+CloudFormation outputs from deployed stack
+---------------------------------------------------------------------------------------------------------------------
+Outputs                                                                                                             
+---------------------------------------------------------------------------------------------------------------------
+Key                 HelloWorldFunctionIamRole                                                                       
+Description         Implicit IAM Role created for Hello World function                                              
+Value               arn:aws:iam::228507534354:role/digital-twin-HelloWorldFunctionRole-1EBGA8B4NMEHX                
+
+Key                 HelloWorldApi                                                                                   
+Description         API Gateway endpoint URL for Prod stage for Hello World function                                
+Value               https://s9q2tdipc1.execute-api.us-east-1.amazonaws.com/Prod/hello/                              
+
+Key                 HelloWorldFunction                                                                              
+Description         Hello World Lambda Function ARN                                                                 
+Value               arn:aws:lambda:us-east-1:228507534354:function:digital-twin-HelloWorldFunction-9HcxOiQVGeKc     
+---------------------------------------------------------------------------------------------------------------------
+
+Successfully created/updated stack - digital-twin in us-east-1

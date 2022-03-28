@@ -1,0 +1,10 @@
+version = 0.1
+[lab]
+[lab.deploy]
+[lab.deploy.parameters]
+stack_name = "digital-twin"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1g1z12912s9ii"
+s3_prefix = "digital-twin"
+region = "us-east-1"
+capabilities = "CAPABILITY_IAM"
+image_repositories = []
