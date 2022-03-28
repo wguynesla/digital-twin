@@ -2,15 +2,14 @@ Install Brew
 Install AWS CLI (Brew)
 - nvm?
 - npm?
-Amazon Corretto
-- https://aws.amazon.com/corretto/?filtered-posts.sort-by=item.additionalFields.createdDate&filtered-posts.sort-order=desc
 Setup creds
 Install AWS SAM CLI (Brew)
 - https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html
 Install Docker
 
-Optimizations capabilities
-- https://aws.amazon.com/blogs/compute/building-typescript-projects-with-aws-sam-cli/
+Visual Studio Code
+AWS Tookit extension for VSCode
+- https://docs.aws.amazon.com/toolkit-for-vscode/latest/userguide/setup-toolkit.html
 
 
 ------------
