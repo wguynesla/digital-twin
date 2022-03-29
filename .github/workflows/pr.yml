@@ -16,4 +16,4 @@ jobs:
     steps:
       - name: Run tests
         run: npm test
-        working-directory: ./hello-world
+#        working-directory: ./hello-world
