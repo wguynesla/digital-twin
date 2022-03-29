@@ -2,18 +2,17 @@ name: Pull Request Open Workflow
 
 on:
   pull_request:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-
   build:
     name: Build
     uses: ./.github/workflows/build.yml
-
   test:
     name: Test
     needs: [build]
     steps:
-    - name: Run tests
-      run: npm test
-      working-directory: ./hello-world
+      - name: Run tests
+        run: npm test
+        working-directory: ./hello-world

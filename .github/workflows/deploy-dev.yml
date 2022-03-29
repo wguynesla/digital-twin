@@ -2,17 +2,16 @@ name: Deploy Dev Workflow
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
 
 jobs:
-
   build:
     name: Build
     uses: ./.github/workflows/build.yml
-
   deploy-dev:
     name: Deploy Dev
     needs: [build]
     steps:
-    - name: Deploy dev
-      run: sam deploy --config-env dev
+      - name: Deploy dev
+        run: sam deploy --config-env dev
