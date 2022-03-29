@@ -15,18 +15,9 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@v3
-      - name: Cache multiple paths
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-      - name: Install dependencies
-        run: npm ci
-        working-directory: ./hello-world
+      - name: Setup SAM
+        uses: aws-actions/setup-sam@v1
       - name: Build
-        run: npm run build --if-present
-        working-directory: ./hello-world
+        run: sam build --beta-features
       - name: Deploy dev
         run: sam deploy --config-env dev
