@@ -62,9 +62,9 @@ jobs:
           ${{ runner.os }}-node-
     - name: Install dependencies
       run: npm ci
-        working-directory: ./hello-world
+      working-directory: ./hello-world
     - name: Build
       run: npm run build --if-present
-        working-directory: ./hello-world
+      working-directory: ./hello-world
     - name: Deploy dev
       run: sam deploy --config-env dev
